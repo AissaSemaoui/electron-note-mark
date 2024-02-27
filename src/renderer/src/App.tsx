@@ -1,11 +1,12 @@
 import '@/lib/dayjs'
 
 import MainLayout from '@/components/main-layout'
+import ContentView from '@/components/content-view'
 
 function App(): JSX.Element {
   return (
     <MainLayout>
-      <h1>Here we are though</h1>
+      <ContentView />
     </MainLayout>
   )
 }

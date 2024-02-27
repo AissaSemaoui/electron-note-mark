@@ -56,7 +56,9 @@
   }
   body,
   #root {
-    @apply h-full max-w-[100vw] bg-background text-foreground;
+    @apply h-full max-w-[100vw] bg-background select-none;
+
+    @apply font-mono antialiased text-foreground;
   }
 
   ::-webkit-scrollbar {

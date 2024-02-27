@@ -11,8 +11,8 @@ const NotePreview = ({ title, updatedAt, isActive, className, ...props }: NotePr
   return (
     <div
       className={cn(
-        'flex items-center justify-between gap-2 px-4 py-4 border-b rounded-sm cursor-pointer border-border/40 hover:bg-foreground/5',
-        isActive && 'bg-muted',
+        'flex items-center justify-between gap-2 px-4 py-4 border-b rounded-sm cursor-pointer border-border/40 hover:bg-muted',
+        isActive && 'bg-accent/60',
         className
       )}
       {...props}

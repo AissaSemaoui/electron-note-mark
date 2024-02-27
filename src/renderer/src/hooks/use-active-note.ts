@@ -1,7 +1,7 @@
 import { selectedNoteAtom } from '@/store/notes'
 import { useAtomValue } from 'jotai'
 
-export const useSelectedNote = () => {
+export const useActiveNote = () => {
   const selectedNote = useAtomValue(selectedNoteAtom)
 
   return selectedNote

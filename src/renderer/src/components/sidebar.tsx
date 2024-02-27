@@ -1,13 +1,15 @@
 import clsx from 'clsx'
-import NotePreview from './note-preview'
-import { Button } from '@/components/ui/button'
 import { FilePlus2, Trash2 } from 'lucide-react'
+
+import NotePreview from '@/components/note-preview'
+import { Button } from '@/components/ui/button'
+
 import { useNotesList } from '@/hooks/use-notes-list'
-import { useSelectedNote } from '@/hooks/use-selected-note'
+import { useActiveNote } from '@/hooks/use-active-note'
 
 const Sidebar = ({ className }: { className?: string }) => {
   const { notes, hanldeSelectNote } = useNotesList()
-  const selectedNote = useSelectedNote()
+  const activeNote = useActiveNote()
 
   return (
     <aside
@@ -25,16 +27,16 @@ const Sidebar = ({ className }: { className?: string }) => {
         </Button>
       </div>
 
-      <div className="min-h-max">
+      <nav className="min-h-max">
         {notes.map((note, index) => (
           <NotePreview
             key={index}
             {...note}
             onClick={() => hanldeSelectNote(note.title)}
-            isActive={note.title === selectedNote?.title}
+            isActive={note.title === activeNote?.title}
           />
         ))}
-      </div>
+      </nav>
     </aside>
   )
 }
