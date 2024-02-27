@@ -27,6 +27,9 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
+    "jotai": "^2.6.5",
+    "loadash": "^1.0.0",
     "lucide-react": "^0.341.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
@@ -35,6 +38,7 @@
     "@electron-toolkit/eslint-config-prettier": "^2.0.0",
     "@electron-toolkit/eslint-config-ts": "^1.0.1",
     "@electron-toolkit/tsconfig": "^1.0.1",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^18.19.9",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",

@@ -1,3 +1,5 @@
+import '@/lib/dayjs'
+
 import MainLayout from '@/components/main-layout'
 
 function App(): JSX.Element {
