@@ -5,7 +5,7 @@ module.exports = {
     './src/renderer/src/pages/**/*.{ts,tsx}',
     './src/renderer/src/components/**/*.{ts,tsx}',
     './src/renderer/src/app/**/*.{ts,tsx}',
-    './src/renderer/src/**/*.{ts,tsx,html}'
+    './src/renderer/src/**/*.{ts,tsx,html,css}'
   ],
   prefix: '',
   theme: {
@@ -73,5 +73,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')]
 }
