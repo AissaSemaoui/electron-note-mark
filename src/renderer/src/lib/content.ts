@@ -4,7 +4,7 @@ export const defaultEditorContent = {
     {
       type: 'heading',
       attrs: { level: 2 },
-      content: [{ type: 'text', text: 'Introducing Novel' }]
+      content: [{ type: 'text', text: 'Introducing Novel' }],
     },
     {
       type: 'paragraph',
@@ -16,15 +16,15 @@ export const defaultEditorContent = {
               type: 'link',
               attrs: {
                 href: 'https://github.com/steven-tey/novel',
-                target: '_blank'
-              }
-            }
+                target: '_blank',
+              },
+            },
           ],
-          text: 'Novel'
+          text: 'Novel',
         },
         {
           type: 'text',
-          text: ' is a Notion-style WYSIWYG editor with AI-powered autocompletion. Built with '
+          text: ' is a Notion-style WYSIWYG editor with AI-powered autocompletion. Built with ',
         },
         {
           type: 'text',
@@ -33,11 +33,11 @@ export const defaultEditorContent = {
               type: 'link',
               attrs: {
                 href: 'https://tiptap.dev/',
-                target: '_blank'
-              }
-            }
+                target: '_blank',
+              },
+            },
           ],
-          text: 'Tiptap'
+          text: 'Tiptap',
         },
         { type: 'text', text: ' + ' },
         {
@@ -47,29 +47,29 @@ export const defaultEditorContent = {
               type: 'link',
               attrs: {
                 href: 'https://sdk.vercel.ai/docs',
-                target: '_blank'
-              }
-            }
+                target: '_blank',
+              },
+            },
           ],
-          text: 'Vercel AI SDK'
+          text: 'Vercel AI SDK',
         },
-        { type: 'text', text: '.' }
-      ]
+        { type: 'text', text: '.' },
+      ],
     },
     {
       type: 'heading',
       attrs: { level: 3 },
-      content: [{ type: 'text', text: 'Installation' }]
+      content: [{ type: 'text', text: 'Installation' }],
     },
     {
       type: 'codeBlock',
       attrs: { language: null },
-      content: [{ type: 'text', text: 'npm i novel' }]
+      content: [{ type: 'text', text: 'npm i novel' }],
     },
     {
       type: 'heading',
       attrs: { level: 3 },
-      content: [{ type: 'text', text: 'Usage' }]
+      content: [{ type: 'text', text: 'Usage' }],
     },
     {
       type: 'codeBlock',
@@ -77,14 +77,14 @@ export const defaultEditorContent = {
       content: [
         {
           type: 'text',
-          text: 'import { Editor } from "novel";\n\nexport default function App() {\n  return (\n     <Editor />\n  )\n}'
-        }
-      ]
+          text: 'import { Editor } from "novel";\n\nexport default function App() {\n  return (\n     <Editor />\n  )\n}',
+        },
+      ],
     },
     {
       type: 'heading',
       attrs: { level: 3 },
-      content: [{ type: 'text', text: 'Features' }]
+      content: [{ type: 'text', text: 'Features' }],
     },
     {
       type: 'orderedList',
@@ -95,9 +95,9 @@ export const defaultEditorContent = {
           content: [
             {
               type: 'paragraph',
-              content: [{ type: 'text', text: 'Slash menu & bubble menu' }]
-            }
-          ]
+              content: [{ type: 'text', text: 'Slash menu & bubble menu' }],
+            },
+          ],
         },
         {
           type: 'listItem',
@@ -109,11 +109,11 @@ export const defaultEditorContent = {
                 { type: 'text', marks: [{ type: 'code' }], text: '++' },
                 {
                   type: 'text',
-                  text: ' to activate, or select from slash menu)'
-                }
-              ]
-            }
-          ]
+                  text: ' to activate, or select from slash menu)',
+                },
+              ],
+            },
+          ],
         },
         {
           type: 'listItem',
@@ -123,13 +123,13 @@ export const defaultEditorContent = {
               content: [
                 {
                   type: 'text',
-                  text: 'Image uploads (drag & drop / copy & paste, or select from slash menu) '
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                  text: 'Image uploads (drag & drop / copy & paste, or select from slash menu) ',
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
       type: 'image',
@@ -138,14 +138,14 @@ export const defaultEditorContent = {
         alt: 'banner.png',
         title: 'banner.png',
         width: null,
-        height: null
-      }
+        height: null,
+      },
     },
     { type: 'horizontalRule' },
     {
       type: 'heading',
       attrs: { level: 3 },
-      content: [{ type: 'text', text: 'Learn more' }]
+      content: [{ type: 'text', text: 'Learn more' }],
     },
     {
       type: 'taskList',
@@ -165,15 +165,15 @@ export const defaultEditorContent = {
                       type: 'link',
                       attrs: {
                         href: 'https://github.com/steven-tey/novel',
-                        target: '_blank'
-                      }
-                    }
+                        target: '_blank',
+                      },
+                    },
                   ],
-                  text: 'GitHub'
-                }
-              ]
-            }
-          ]
+                  text: 'GitHub',
+                },
+              ],
+            },
+          ],
         },
         {
           type: 'taskItem',
@@ -190,15 +190,15 @@ export const defaultEditorContent = {
                       type: 'link',
                       attrs: {
                         href: 'https://www.npmjs.com/package/novel',
-                        target: '_blank'
-                      }
-                    }
+                        target: '_blank',
+                      },
+                    },
                   ],
-                  text: 'NPM package'
-                }
-              ]
-            }
-          ]
+                  text: 'NPM package',
+                },
+              ],
+            },
+          ],
         },
         {
           type: 'taskItem',
@@ -214,18 +214,18 @@ export const defaultEditorContent = {
                       type: 'link',
                       attrs: {
                         href: 'https://vercel.com/templates/next.js/novel',
-                        target: '_blank'
-                      }
-                    }
+                        target: '_blank',
+                      },
+                    },
                   ],
-                  text: 'Deploy your own'
+                  text: 'Deploy your own',
                 },
-                { type: 'text', text: ' to Vercel' }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+                { type: 'text', text: ' to Vercel' },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};

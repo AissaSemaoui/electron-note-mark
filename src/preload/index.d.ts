@@ -1,5 +1,11 @@
-import { ElectronAPI } from '@electron-toolkit/preload'
+import { CreateNote, GetAllNotes, GetNoteContent } from '@shared/types';
 
 declare global {
-  interface Window {}
+  interface Window {
+    context: {
+      createNote: CreateNote;
+      getNoteContent: GetNoteContent;
+      getAllNotes: GetAllNotes;
+    };
+  }
 }

@@ -1,13 +1,20 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron';
+
+import type { CreateNote, GetAllNotes, GetNoteContent } from '@shared/types';
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled
 if (!process.contextIsolated) {
-  throw new Error('contextIsolation must be enabled in the BrowserWindow')
+  throw new Error('contextIsolation must be enabled in the BrowserWindow');
 }
 
 try {
-  contextBridge.exposeInMainWorld('context', {})
+  contextBridge.exposeInMainWorld('context', {
+    createNote: (...args: Parameters<CreateNote>) => ipcRenderer.invoke('createNote', ...args),
+    getNoteContent: (...args: Parameters<GetNoteContent>) =>
+      ipcRenderer.invoke('getNoteContent', ...args),
+    getAllNotes: (...args: Parameters<GetAllNotes>) => ipcRenderer.invoke('getAllNotes', ...args),
+  });
 } catch (error) {
-  console.error(error)
+  console.error(error);
 }
