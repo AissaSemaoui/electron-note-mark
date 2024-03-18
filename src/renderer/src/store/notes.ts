@@ -1,23 +1,40 @@
-import { atom } from 'jotai'
+import { atom } from 'jotai';
 
-import type { NoteInfo } from '@shared/types'
-import { mockedNotes } from '@/lib/mock'
+import type { NoteInfo } from '@shared/types';
+import { unwrap } from 'jotai/utils';
 
-export const notesAtom = atom<NoteInfo[]>(mockedNotes)
+const loadNotes = async () => {
+  const notes = (await window.context.getAllNotes()) ?? [];
 
-export const selectedNoteIndexAtom = atom<number | null>(null)
+  return notes?.sort((p, n) => p.updatedAt - n.updatedAt);
+};
+
+const AsyncNoteAtom = atom<NoteInfo[] | Promise<NoteInfo[]>>(loadNotes());
+
+export const refreshNotesAtom = atom(null, (_get, set) => {
+  console.log('hello world', set);
+  set(AsyncNoteAtom, loadNotes());
+});
+
+export const notesAtom = unwrap(AsyncNoteAtom, (prev) => prev ?? []);
+
+export const selectedNoteTitleAtom = atom<string | null>(null);
 
 export const selectedNoteAtom = atom((get) => {
-  const notes = get(notesAtom)
-  const selectedNoteIndex = get(selectedNoteIndexAtom)
+  const notes = get(notesAtom);
+  const selectedNoteTitle = get(selectedNoteTitleAtom);
 
-  if (typeof selectedNoteIndex !== 'number') {
-    return null
+  if (typeof selectedNoteTitle !== 'string') {
+    return null;
   }
 
-  const selectedNote = notes[selectedNoteIndex]
+  const selectedNote = notes.find((n) => n.title === selectedNoteTitle);
 
-  return selectedNote
-})
+  if (!selectedNote) {
+    return null;
+  }
 
-console.log(notesAtom, selectedNoteIndexAtom, selectedNoteAtom)
+  return selectedNote;
+});
+
+console.log(notesAtom, selectedNoteTitleAtom, selectedNoteAtom);

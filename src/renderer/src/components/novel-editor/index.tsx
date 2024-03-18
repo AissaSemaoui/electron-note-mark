@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import {
   EditorRoot,
@@ -10,9 +10,9 @@ import {
   EditorBubble,
 } from 'novel';
 
+import useUpdateEffect from 'react-use/lib/useUpdateEffect';
 import { useDebouncedCallback } from 'use-debounce';
 import { SuggestionsCommand, slashCommand } from './slash-commands';
-import { defaultEditorContent } from '@/lib/content';
 import { defaultExtensions } from './extensions';
 import { NodeSelector } from './selectors/node-selector';
 import { LinkSelector } from './selectors/link-selector';
@@ -20,13 +20,30 @@ import { TextButtons } from './selectors/text-buttons';
 import { ColorSelector } from './selectors/color-selector';
 
 import './prosemirror.css';
+import { defaultEditorContent } from '@/lib/content';
 
-const Editor = () => {
+interface EditorProps {
+  content: string | null;
+  setContent: (content: string) => void;
+}
+
+const Editor = ({ content, setContent }: EditorProps) => {
+  console.log('content from inside : ', content);
   const [openNode, setOpenNode] = useState(false);
   const [openLink, setOpenLink] = useState(false);
   const [openColor, setOpenColor] = useState(false);
 
-  const [initialContent, setInitialContent] = useState<null | JSONContent>(null);
+  const getParsedContent = (): JSONContent | null => {
+    try {
+      if (!content) return defaultEditorContent;
+
+      return JSON.parse(content);
+    } catch (e) {
+      return defaultEditorContent;
+    }
+  };
+
+  const [initialContent, setInitialContent] = useState<null | JSONContent>(getParsedContent());
 
   const debouncedUpdates = useDebouncedCallback(async (editor) => {
     const json = editor.getJSON();
@@ -34,11 +51,9 @@ const Editor = () => {
     setInitialContent(json);
   }, 500);
 
-  useEffect(() => {
-    const content = window.localStorage.getItem('novel-content');
-    if (content) setInitialContent(JSON.parse(content));
-    else setInitialContent(defaultEditorContent);
-  }, []);
+  useUpdateEffect(() => {
+    setContent(JSON.stringify(initialContent));
+  }, [initialContent]);
 
   if (!initialContent) return null;
 

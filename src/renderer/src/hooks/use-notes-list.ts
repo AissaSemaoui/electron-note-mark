@@ -1,23 +1,21 @@
-import { notesAtom, selectedNoteIndexAtom } from '@/store/notes'
-import { useAtom, useAtomValue } from 'jotai'
+import { notesAtom, selectedNoteTitleAtom } from '@/store/notes';
+import { useAtom, useAtomValue } from 'jotai';
 
 export const useNotesList = () => {
-  const notes = useAtomValue(notesAtom)
+  const notes = useAtomValue(notesAtom);
 
-  const [selectedNoteIndex, setSelectedNoteIndex] = useAtom(selectedNoteIndexAtom)
+  const [selectedNoteTitle, setSelectedNoteTitle] = useAtom(selectedNoteTitleAtom);
 
   const hanldeSelectNote = (title: string) => {
-    const noteIndex = notes.findIndex((note) => note.title === title)
-
-    if (noteIndex === -1 || noteIndex === selectedNoteIndex) {
-      return
+    if (!title || title === selectedNoteTitle) {
+      return;
     }
 
-    setSelectedNoteIndex(noteIndex)
-  }
+    setSelectedNoteTitle(title);
+  };
 
   return {
     notes,
-    hanldeSelectNote
-  }
-}
+    hanldeSelectNote,
+  };
+};

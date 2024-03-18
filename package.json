@@ -38,6 +38,7 @@
     "loadash": "^1.0.0",
     "lucide-react": "^0.341.0",
     "novel": "^0.2.6",
+    "react-use": "^17.5.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "use-debounce": "^10.0.0"

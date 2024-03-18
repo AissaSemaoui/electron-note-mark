@@ -2,9 +2,9 @@ import { electronApp, is, optimizer } from '@electron-toolkit/utils';
 import { BrowserWindow, app, ipcMain, shell } from 'electron';
 import { join } from 'path';
 
-import { createNote, getAllNotes, getNoteContent } from '@/lib/notes';
+import { createNote, getAllNotes, getNoteContent, saveNoteContent } from '@/lib/notes';
 
-import type { CreateNote, GetAllNotes, GetNoteContent } from '@shared/types';
+import type { CreateNote, GetAllNotes, GetNoteContent, SaveNoteContent } from '@shared/types';
 
 import icon from '../../resources/icon.png?asset';
 
@@ -67,6 +67,9 @@ app.whenReady().then(() => {
     getNoteContent(...args),
   );
   ipcMain.handle('getAllNotes', (_, ...args: Parameters<GetAllNotes>) => getAllNotes(...args));
+  ipcMain.handle('saveNoteContent', (_, ...args: Parameters<SaveNoteContent>) =>
+    saveNoteContent(...args),
+  );
 
   createWindow();
 
