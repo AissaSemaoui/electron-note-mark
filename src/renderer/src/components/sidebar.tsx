@@ -4,14 +4,17 @@ import { FilePlus2Icon, RefreshCwIcon, Trash2Icon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NotePreviewList from '@/components/note-preview-list';
 import { CreateNoteModal } from '@/components/create-note-modal';
+import { DeleteNoteConfirm } from '@/components/delete-note-confirm';
 
 import { useActiveNote } from '@/hooks/use-active-note';
 import { useNotesList } from '@/hooks/use-notes-list';
 import { useRefreshNotes } from '@/hooks/use-refresh-notes';
+import { useDeleteNote } from '@/hooks/use-delete-note';
 
 const Sidebar = ({ className }: { className?: string }) => {
   const { notes, hanldeSelectNote } = useNotesList();
   const refresh = useRefreshNotes();
+  const deleteNote = useDeleteNote();
 
   const activeNote = useActiveNote();
 
@@ -34,9 +37,11 @@ const Sidebar = ({ className }: { className?: string }) => {
             </Button>
           </CreateNoteModal>
 
-          <Button variant="destructive" size="icon">
-            <Trash2Icon className="w-4 h-4" />
-          </Button>
+          <DeleteNoteConfirm onConfirm={() => deleteNote(activeNote?.title)} onSuccess={refresh}>
+            <Button variant="destructive" size="icon">
+              <Trash2Icon className="w-4 h-4" />
+            </Button>
+          </DeleteNoteConfirm>
         </div>
       </div>
 

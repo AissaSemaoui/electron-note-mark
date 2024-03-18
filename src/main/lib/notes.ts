@@ -48,6 +48,10 @@ export const saveNoteContent: SaveNoteContent = async (filename, content) => {
   await fs.writeFile(noteFile, content, { encoding: fileEncryption }).catch(console.error);
 };
 
+export const deleteNote = async (filename: string) => {
+  await fs.unlink(`${rootDir}/${filename}.${fileExtension}`).catch(console.error);
+};
+
 export const getAllNotes: GetAllNotes = async () => {
   const notes = await fs.readdir(rootDir).catch(console.error);
 

@@ -1,6 +1,12 @@
 import { contextBridge, ipcRenderer } from 'electron';
 
-import type { CreateNote, GetAllNotes, GetNoteContent, SaveNoteContent } from '@shared/types';
+import type {
+  CreateNote,
+  DeleteNote,
+  GetAllNotes,
+  GetNoteContent,
+  SaveNoteContent,
+} from '@shared/types';
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled
@@ -16,6 +22,7 @@ try {
     getAllNotes: (...args: Parameters<GetAllNotes>) => ipcRenderer.invoke('getAllNotes', ...args),
     saveNoteContent: (...args: Parameters<SaveNoteContent>) =>
       ipcRenderer.invoke('saveNoteContent', ...args),
+    deleteNote: (...args: Parameters<DeleteNote>) => ipcRenderer.invoke('deleteNote', ...args),
   });
 } catch (error) {
   console.error(error);
