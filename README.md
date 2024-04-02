@@ -1,6 +1,15 @@
-# package.json
+A Note Mark app with Electron, React, and TypeScript
 
-An Electron application with React and TypeScript
+### Tech Stack 
+- React
+- Typescript
+- Node.js
+- Shadcn-ui
+- Tailwindcss / Radix ui
+- Jotai
+- electron-vite
+
+`inspired from a YouTube tutorial`
 
 ## Recommended IDE Setup
 
